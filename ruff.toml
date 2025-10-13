@@ -95,7 +95,7 @@ ignore = [
   # 'D211', # See https://github.com/charliermarsh/ruff/issues/2281
 
 
-  # 'D200', # Allow multiline docstring even when it could fit on one line
+  # 'D200', # Allow multiline docstring even when it could fit n one line
 
   # 'C408',    # Allow instantiating dictionary as dict(key=value)
   # 'G004',    # Logging statement uses f-string
@@ -127,6 +127,7 @@ max-complexity = 10
 
 [lint.flake8-quotes]
 inline-quotes = "single"
+
 
 [format]
 quote-style = "single"
