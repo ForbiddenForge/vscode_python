@@ -79,6 +79,8 @@ ignore = [
   "T201",
   # `assert` found
   "S101",
+  #Standard pseudo-random generators are not suitable for cryptographic purposes
+  'S311',
   'INP001', # implicit-namespace-package
   'T20',    # flake8-print (warns when there are print statements)
 
