@@ -77,6 +77,34 @@ ignore = [
   "PLR0915",
   # T201 `print` found
   "T201",
+  # `assert` found
+  "S101",
+  'INP001', # implicit-namespace-package
+  'T20',    # flake8-print (warns when there are print statements)
+
+  # # One of either D212 or D213 must be disabled.
+  # # (I prefer disabling D212 (Multi-line docstring summary should start at the first line)
+  # #  because I like text inside a docstring
+  # #  to start the line below the three ''')
+  # #'D213', # See https://github.com/charliermarsh/ruff/issues/2281
+  # 'D212', # See https://github.com/charliermarsh/ruff/issues/2281
+  # # One of D203 and D200 must be disabled.
+  # # No strong preference here.
+  # # One expects a blank line before a class docstring
+  # #'D203', # See https://github.com/charliermarsh/ruff/issues/2281
+  # 'D211', # See https://github.com/charliermarsh/ruff/issues/2281
+
+
+  # 'D200', # Allow multiline docstring even when it could fit on one line
+
+  # 'C408',    # Allow instantiating dictionary as dict(key=value)
+  # 'G004',    # Logging statement uses f-string
+  # 'E501',    # Line too long
+  # 'ANN101',  # Don't require self to be annotated.
+  # 'PTH',     # allow os.path
+  # 'PLR0913', # allow too many arguments
+  # 'COM812',  # may cause issues with ruff format
+  # 'ISC001',  # may cause issues with ruff format
 ]
 
 fixable = ["ALL"]
@@ -86,6 +114,19 @@ unfixable = [
   "F401",
 ]
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# I like the google docstyle
+# See https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
+# and http://google.github.io/styleguide/pyguide.html
+# https://gist.github.com/redlotus/3bc387c2591e3e908c9b63b97b11d24e
+[lint.pydocstyle]
+convention = 'google' # Or 'numpy', or 'pep257'
+
+[lint.mccabe]
+max-complexity = 10
+
+[lint.flake8-quotes]
+inline-quotes = "single"
 
 [format]
 quote-style = "single"
