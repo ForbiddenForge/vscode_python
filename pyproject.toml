@@ -19,6 +19,10 @@ pythonpath = "src"
 # Ruff Configuration
 # ============================================================================
 [tool.ruff]
+
+line-length = 120
+indent-width = 4
+target-version = "py312"
 exclude = [
   ".bzr",
   ".direnv",
@@ -47,9 +51,6 @@ exclude = [
   "site-packages",
   "venv",
 ]
-line-length = 120
-indent-width = 4
-target-version = "py312"
 
 [tool.ruff.lint]
 select = [
