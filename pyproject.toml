@@ -4,8 +4,155 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["pytest>=8.3.3"]
 
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.3",
+    "ruff>=0.8.0",
+]
 
 [tool.pytest.ini_options]
 pythonpath = "src"
+
+# ============================================================================
+# Ruff Configuration
+# ============================================================================
+[tool.ruff]
+exclude = [
+  ".bzr",
+  ".direnv",
+  ".eggs",
+  ".git",
+  ".git-rewrite",
+  ".hg",
+  ".ipynb_checkpoints",
+  ".mypy_cache",
+  ".nox",
+  ".pants.d",
+  ".pyenv",
+  ".pytest_cache",
+  ".pytype",
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  ".vscode",
+  "__pypackages__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+  "node_modules",
+  "site-packages",
+  "venv",
+]
+line-length = 120
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+  "A",    # flake8-builtins - Check for shadowing of builtins
+  "ARG",  # flake8-unused-arguments - Check for unused function arguments
+  "B",    # flake8-bugbear - Find likely bugs and design problems
+  "C",    # mccabe - Check code complexity
+  "DTZ",  # flake8-datetimez - Enforce timezone-aware datetime usage
+  "E",    # pycodestyle errors - Style violations
+  "EM",   # flake8-errmsg - Check error message formatting
+  "F",    # pyflakes - Check for Python errors
+  "FBT",  # flake8-boolean-trap - Check for boolean traps in function signatures
+  "I",    # isort - Sort imports
+  "ICN",  # flake8-import-conventions - Enforce import conventions
+  "ISC",  # flake8-implicit-str-concat - Check for implicit string concatenation
+  "N",    # pep8-naming - Check naming conventions
+  "PLC",  # pylint convention - Code convention checks
+  "PLE",  # pylint error - Probable errors
+  "PLR",  # pylint refactor - Refactoring suggestions
+  "PLW",  # pylint warning - Warning-level checks
+  "Q",    # flake8-quotes - Enforce quote style consistency
+  "RUF",  # Ruff-specific rules
+  "S",    # flake8-bandit - Security testing
+  "T",    # flake8-print/debugger - Check for print/debugger statements
+  "TID",  # flake8-tidy-imports - Check import organization
+  "UP",   # pyupgrade - Upgrade syntax for newer Python versions
+  "W",    # pycodestyle warnings - Style warnings
+  "YTT",  # flake8-2020 - Check for misuse of sys.version
+]
+
+ignore = [
+  # Allow non-abstract empty methods in abstract base classes
+  "B027",
+  
+  # Allow boolean positional values in function calls, like `dict.get(... True)`
+  "FBT003",
+  
+  # Ignore checks for possible passwords (hardcoded secrets)
+  "S105",   # Possible hardcoded password assigned to variable
+  "S106",   # Possible hardcoded password assigned to argument
+  "S107",   # Possible hardcoded password assigned to default function argument
+  
+  # Ignore complexity rules (allow complex functions/methods)
+  "C901",     # Function is too complex
+  "PLR0911",  # Too many return statements
+  "PLR0912",  # Too many branches
+  "PLR0913",  # Too many arguments to function call
+  "PLR0915",  # Too many statements
+  
+  # Allow print statements (useful for data science/debugging)
+  "T201",   # `print` found
+  "T20",    # flake8-print (warns when there are print statements)
+  
+  # Allow assert statements (commonly used in pytest)
+  "S101",   # Use of `assert` detected
+  
+  # Allow standard pseudo-random generators (not all projects need cryptographic random)
+  "S311",   # Standard pseudo-random generators are not suitable for cryptographic purposes
+  
+  # Allow files without __init__.py (implicit namespace packages)
+  "INP001", # File is part of an implicit namespace package
+  
+  # Don't auto-fix unused imports (keep them until explicitly removed)
+  "F401",   # Imported but unused
+]
+
+# Allow all rules to auto-fix by default
+fixable = ["ALL"]
+
+# Never auto-fix unused imports (manual review recommended)
+unfixable = ["F401"]
+
+# Allow unused variables when they start with underscore(s)
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.pydocstyle]
+# Use Google-style docstrings
+# See: http://google.github.io/styleguide/pyguide.html
+convention = "google"
+
+[tool.ruff.lint.mccabe]
+# Maximum cyclomatic complexity
+max-complexity = 10
+
+[tool.ruff.lint.flake8-quotes]
+# Enforce double quotes for inline strings
+inline-quotes = "double"
+
+[tool.ruff.format]
+# Use double quotes for all strings
+quote-style = "double"
+
+# Use spaces for indentation (not tabs)
+indent-style = "space"
+
+# Respect trailing commas in multi-line collections
+skip-magic-trailing-comma = false
+
+# Auto-detect line endings (LF vs CRLF)
+line-ending = "auto"
+
+# Format code examples in docstrings
+docstring-code-format = true
+
+# Use same line length for docstring code as regular code
+docstring-code-line-length = "dynamic"
