@@ -12,5 +12,8 @@
         "postman.postman-for-vscode",
         "alexcvzz.vscode-sqlite",
         "ms-vscode-remote.remote-containers",
+        "charliermarsh.ruff",
+        "ms-python.python",
+        "ms-toolsai.jupyter"
     ]
 }
