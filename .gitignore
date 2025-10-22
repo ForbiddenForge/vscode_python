@@ -33,9 +33,8 @@ env/
 venv/
 ENV/
 env.bak/
-venv.bak
+venv.bak/
 .venv/
-
 
 # Unit test / coverage reports
 htmlcov/
@@ -49,11 +48,42 @@ coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
-pytest_cache/
+.pytest_cache/
 cover/
 
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# python version
-.python-version
+# Environment variables and secrets
+.env
+.env.local
+*.env
+
+# IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data files (adjust based on needs)
+# *.csv
+# *.xlsx
+# *.parquet
+# data/
+# datasets/
+
+# Model files (if large)
+# *.pkl
+# *.joblib
+# *.h5
+# *.pt
+# *.pth
+# models/
+
+# Logs
+*.log
+logs/
