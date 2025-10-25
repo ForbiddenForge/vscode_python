@@ -38,4 +38,76 @@
     "python.testing.cwd": "${workspaceFolder}/tests",
     "python.testing.pytestPath": "${workspaceFolder}/.venv/bin/pytest",
     "python.testing.autoTestDiscoverOnSaveEnabled": true
+},
+
+// MSSQL Settings
+
+// General Settings
+{
+  "mssql.maxRecentConnections": 5,
+  "mssql.enableRichExperiences": true,
+  "mssql.openQueryResultsInTabByDefault": false,
+  "mssql.logDebugInfo": false,
+  "mssql.messagesDefaultOpen": true,
+  "mssql.connectionManagement.rememberPasswordsUntilRestart": true
+},
+
+// IntelliSense
+{
+  "mssql.intelliSense.enableIntelliSense": true,
+  "mssql.intelliSense.enableErrorChecking": true,
+  "mssql.intelliSense.enableSuggestions": true,
+  "mssql.intelliSense.enableQuickInfo": true,
+  "mssql.intelliSense.lowerCaseSuggestions": false
+},
+
+// Results and Grid
+{
+  "mssql.resultsFontFamily": null,
+  "mssql.resultsFontSize": null,
+  "mssql.copyIncludeHeaders": false,
+  "mssql.copyRemoveNewLine": true,
+  "mssql.saveAsCsv.includeHeaders": true,
+  "mssql.saveAsCsv.delimiter": ",",    // Options: ",", "\t", ";", "|"
+  "mssql.saveAsCsv.lineSeparator": null,
+  "mssql.saveAsCsv.textIdentifier": "\"",
+  "mssql.saveAsCsv.encoding": "utf-8", // Options: "utf-8", "utf-16le", "utf-16be", "ascii", "latin1", "iso-8859-1"
+  "mssql.splitPaneSelection": "next",
+  "mssql.persistQueryResultTabs": false
+},
+
+// Query Formatting
+{
+  "mssql.format.alignColumnDefinitionsInColumns": false,
+  "mssql.format.datatypeCasing": "none",
+  "mssql.format.keywordCasing": "none",
+  "mssql.format.placeCommasBeforeNextStatement": false,
+  "mssql.format.placeSelectStatementReferencesOnNewLine": false
+},
+
+// Query Execution
+{
+  "mssql.query.displayBitAsNumber": true
+},
+
+// Shortcuts
+{
+  "mssql.shortcuts": {
+    "event.toggleResultPane": "ctrl+alt+r",
+    "event.toggleMessagePane": "ctrl+alt+y",
+    "event.prevGrid": "ctrl+up",
+    "event.nextGrid": "ctrl+down",
+    "event.copySelection": "ctrl+c",
+    "event.maximizeGrid": "",
+    "event.selectAll": "",
+    "event.saveAsJSON": "",
+    "event.saveAsCSV": "",
+    "event.saveAsExcel": ""
+  }
+},
+
+// Status bar
+{
+  "mssql.statusBar.connectionInfoMaxLength": -1,
+  "mssql.enableConnectionColor": true,
 }
